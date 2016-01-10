@@ -32,7 +32,6 @@ public class UserRepositoryImpl implements UserRepository {
 @Override
     public User create(User user) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-    System.out.println("dataSource "+dataSource);
     logger.info("dataSource{} ", dataSource);
 
 
@@ -45,7 +44,6 @@ public class UserRepositoryImpl implements UserRepository {
       jdbcTemplate.update(
               sql,args);
 
-        logger.debug("hello{} ", sql);
 
         return user;
     }

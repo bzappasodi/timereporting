@@ -44,7 +44,7 @@ public class UserController {
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public String saveUser(User user, Model model){
         userService.create(user);
-        model.addAttribute("success", "success");
+        model.addAttribute("success", "User Successfully Added!");
         return "savesuccess";
     }
 
