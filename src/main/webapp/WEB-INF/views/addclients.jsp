@@ -11,8 +11,7 @@
             <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>
         </div>
     </c:if>
-    <form action="addclient
-  " method="post" role="form">
+    <form action="addclient" method="post" role="form">
         <fieldset>
             <div class="form-group">
                 <input type="text" name="Name" class="form-control" id="inputname" placeholder="Name">

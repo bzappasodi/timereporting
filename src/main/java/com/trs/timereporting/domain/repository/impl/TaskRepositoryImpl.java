@@ -52,8 +52,17 @@ public class TaskRepositoryImpl implements TaskRepository {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         logger.info("dataSource{} ", dataSource);
 
+        String sql = "INSERT INTO TASKS "
+                + "(PROJECT_ID, HOURS_ADDED, DESCRIPTION, HOURS) VALUES (?,?,?,?)";
+        Object[] args = new Object[]{task.getProjectId(),task.getHoursAdded(),task.getDescription(),task.getHours()};
 
-        return task;
+
+        logger.info("sql {} ", sql);
+
+        jdbcTemplate.update(
+                sql, args);
+
+       return task;
     }
 
 

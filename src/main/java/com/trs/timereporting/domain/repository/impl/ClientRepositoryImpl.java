@@ -16,6 +16,9 @@ import java.util.Map;
 
 /**
  * Created by williamzappasodi on 1/1/16.
+ * A repository object makes queries to the data source for the data,
+ * thereafter maps the data from the data source to a
+ * domain object, and finally, persists the changes in the domain object to the data source.
  */
 @Repository
 public class ClientRepositoryImpl implements ClientRepository {
@@ -54,6 +57,7 @@ public class ClientRepositoryImpl implements ClientRepository {
         for (Map row : rows) {
             Client client = new Client();
             client.setAddress((String) (row.get("ADDRESS")));
+            client.setClientId((Integer) (row.get("CLIENT_ID")));
             client.setName((String) row.get("NAME"));
 
             listOfClients.add(client);

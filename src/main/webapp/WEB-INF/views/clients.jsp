@@ -8,7 +8,7 @@
 
     <div class="row">
         <c:forEach items="${clients}" var="client">
-            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+            <div class="col-sm-6 col-md-3">
 
                 <div class="caption">
                     <p>${client.name}

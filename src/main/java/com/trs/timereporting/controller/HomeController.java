@@ -13,7 +13,7 @@ public class HomeController {
     public String welcome(Model model) {
         // Adding these key values to the model or map
         // model.addAttribute works exactly like request.setAttribute.
-        model.addAttribute("greeting", "Welcome to Time Reporting System!");
+        model.addAttribute("greeting", "Login");
         model.addAttribute("tagline", "The one and only amazing TRS");
 
         // return value of the welcome method

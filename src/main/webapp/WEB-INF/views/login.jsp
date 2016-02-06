@@ -1,37 +1,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <jsp:include page="template/header_inc.jsp">
-    <jsp:param name="title" value="Time reporting user registration"/>
+    <jsp:param name="title" value="${greeting}"/>
 </jsp:include>
 
 <div class="panel-body">
     <c:if test="${not empty error}">
         <div class="alert alert-danger">
-            <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>
+            Error
+           <%-- <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>--%>
         </div>
     </c:if>
-    <form action="users" method="post" role="form">
+    <form action="<c:url value= "/j_spring_security_check"></c:url>" method="post">
         <fieldset>
             <div class="form-group">
-                <input type="text" name="firstName" class="form-control" id="inputfirstname" placeholder="First Name">
+                <input class="form-control" placeholder="User Name" name='j_username' type="text">
             </div>
-
             <div class="form-group">
-                <input type="text" name="lastName" class="form-control" id="inputlasttname" placeholder="Last Name">
+                <input class="form-control" placeholder="Password" name='j_password'  type="password" value="">
             </div>
-
-            <div class="form-group">
-                <input type="text" name="userName" class="form-control" id="inputusername" placeholder="User Name">
-            </div>
-
-            <div class="form-group">
-                <input type="password" name="passWord" class="form-control" id="inputpassword" placeholder="Password">
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
         </fieldset>
     </form>
+    gdsfgjsfg
+    dhadfhadf
 
 
 </div>
