@@ -31,7 +31,8 @@ public class TaskController {
 
     @RequestMapping("/viewtasks")
     public String view(Model model) {
-        model.addAttribute("taskmessage", "all tasks");
+        model.addAttribute("tasks", taskService.getAllTasks());
+        model.addAttribute("taskmessage", "View all tasks");
         return "viewtasks";
     }
 
