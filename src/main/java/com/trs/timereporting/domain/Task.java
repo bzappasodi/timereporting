@@ -17,6 +17,7 @@ public class Task {
     private String hoursAdded;
     private String description;
     private String hours;
+    private String projectDescription;
 
     public Task() {
 
@@ -61,5 +62,13 @@ public class Task {
 
     public void setHours(String hours) {
         this.hours = hours;
+    }
+
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
     }
 }

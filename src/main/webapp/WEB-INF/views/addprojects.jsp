@@ -59,4 +59,12 @@
 
     </div>
 </div>
+
 <%@ include file="template/footer_inc.jsp" %>
+<script>
+    require(['common'], function (common) {
+        require(['showDatePicker']);
+
+    })
+
+</script>

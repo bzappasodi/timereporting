@@ -9,7 +9,7 @@
     <c:if test="${not empty error}">
         <div class="alert alert-danger">
             Error
-           <%-- <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>--%>
+                <%-- <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>--%>
         </div>
     </c:if>
     <form action="<c:url value= "/j_spring_security_check"></c:url>" method="post">
@@ -18,13 +18,11 @@
                 <input class="form-control" placeholder="User Name" name='j_username' type="text">
             </div>
             <div class="form-group">
-                <input class="form-control" placeholder="Password" name='j_password'  type="password" value="">
+                <input class="form-control" placeholder="Password" name='j_password' type="password" value="">
             </div>
             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
         </fieldset>
     </form>
-    gdsfgjsfg
-    dhadfhadf
 
 
 </div>

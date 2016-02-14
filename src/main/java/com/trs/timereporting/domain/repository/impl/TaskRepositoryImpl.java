@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by williamzappasodi on 1/18/16.
@@ -42,8 +44,30 @@ public class TaskRepositoryImpl implements TaskRepository {
         logger.info("dataSource{} ", dataSource);
 
 
-        return null;
-        //return listOfTasks;
+       // String sql = "SELECT DESCRIPTION, HOURS, HOURS_ADDED, PROJECT_ID from TASKS;";
+
+
+        String sql ="SELECT a.DESCRIPTION, a.HOURS, " +
+                "a.HOURS_ADDED, b.DESCRIPTION AS PROJECTDESCRIPTION " +
+                "FROM TASKS a, PROJECTS b  " +
+                "WHERE a.PROJECT_ID = b.PROJECT_ID";
+
+        List<Task> listOfTasks = new ArrayList<Task>();
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            Task task = new Task();
+
+           task.setDescription((String) row.get("DESCRIPTION"));
+            task.setHours((String) row.get("HOURS"));
+            task.setHoursAdded((String) row.get("HOURS_ADDED"));
+            task.setProjectDescription((String) row.get("PROJECTDESCRIPTION"));
+
+            listOfTasks.add(task);
+
+        }
+
+        return listOfTasks;
     }
 
 
@@ -54,7 +78,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 
         String sql = "INSERT INTO TASKS "
                 + "(PROJECT_ID, HOURS_ADDED, DESCRIPTION, HOURS) VALUES (?,?,?,?)";
-        Object[] args = new Object[]{task.getProjectId(),task.getHoursAdded(),task.getDescription(),task.getHours()};
+        Object[] args = new Object[]{task.getProjectId(), task.getHoursAdded(), task.getDescription(), task.getHours()};
 
 
         logger.info("sql {} ", sql);
@@ -62,7 +86,7 @@ public class TaskRepositoryImpl implements TaskRepository {
         jdbcTemplate.update(
                 sql, args);
 
-       return task;
+        return task;
     }
 
 
