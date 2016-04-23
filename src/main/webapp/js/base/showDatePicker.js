@@ -5,4 +5,12 @@ define(['jquery', 'jquery-ui'], function ($) {
     $("#DUE_DATE").datepicker();
 
 
+    var zapp = function(){
+
+        return "chrissy";
+    }
+
+
+    return zapp;
+
 });
