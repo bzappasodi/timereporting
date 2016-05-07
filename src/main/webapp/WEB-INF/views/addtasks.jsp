@@ -4,11 +4,11 @@
     <jsp:param name="title" value="Time reporting task list"/>
 </jsp:include>
 
-<div class="panel-body">
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
 
-    <div class="row">
 
-        <div class="caption">
             <form action="/addtask" method="post" role="form">
                 <fieldset>
                     <div class="form-group">
@@ -34,8 +34,11 @@
                 </fieldset>
 
             </form>
-        </div>
-    </div>
 
+        <div class="col-sm-4"></div>
+
+    </div>
 </div>
+
+
 <%@ include file="template/footer_inc.jsp" %>

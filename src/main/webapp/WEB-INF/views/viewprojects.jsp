@@ -5,13 +5,11 @@
     <jsp:param name="title" value="${addprojectmessage}"/>
 </jsp:include>
 
-<div class="panel-body">
 
     <div class="row">
-
         <table class="table table-hover">
             <thead>
-            <tr>
+
             <tr>
                 <th>Name</th>
                 <th>Description</th>
@@ -20,7 +18,7 @@
                 <th>Add Tasks</th>
             </tr>
 
-            </tr>
+
             </thead>
 
             <tbody>
@@ -39,6 +37,5 @@
         </table>
 
     </div>
-</div>
 
 <%@ include file="template/footer_inc.jsp" %>

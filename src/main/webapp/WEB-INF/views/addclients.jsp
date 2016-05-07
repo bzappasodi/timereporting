@@ -1,31 +1,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <jsp:include page="template/header_inc.jsp">
     <jsp:param name="title" value="${addclientsmsg}"/>
 </jsp:include>
 
-<div class="panel-body">
-    <c:if test="${not empty error}">
-        <div class="alert alert-danger">
-            <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>
-        </div>
-    </c:if>
-    <form action="addclient" method="post" role="form">
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+
+    <form:form  modelAttribute="newClient"  role="form">
+        <form:errors path="*" cssClass="alert alert-danger" element="div"/>
+
+
         <fieldset>
             <div class="form-group">
-                <input type="text" name="Name" class="form-control" id="inputname" placeholder="Name">
+                <form:input type="text" path="name"  class="form-control" id="name" placeholder="Name" />
+                <form:errors path="name" cssClass="text-danger"/>
+
             </div>
 
             <div class="form-group">
-                <input type="text" name="Address" class="form-control" id="inputaddress" placeholder="Address">
+                <form:input type="text" path="address" class="form-control" id="address" placeholder="Address" />
+                <form:errors path="address" cssClass="text-danger"/>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg"><spring:message code="addClient.form.submit.label"/></button>
 
         </fieldset>
-    </form>
-
+    </form:form>
+    </div>
+    <div class="col-sm-4"></div>
 
 </div>
 <%@ include file="template/footer_inc.jsp" %>

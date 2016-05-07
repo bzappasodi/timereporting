@@ -9,9 +9,11 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 
+    <mvc:annotation-driven enable-matrix-variables="true" validator="validator"/>
+
+
     <context:component-scan base-package="com.trs.timereporting"/>
 
-    <mvc:annotation-driven/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -20,8 +22,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:resources location="js/" mapping="/js/**"/>
-    <mvc:resources location="css/" mapping="/css/**"/>
 
 
     <bean id="propertyConfigurer"
@@ -30,6 +30,29 @@
             <value>/WEB-INF/jdbc.properties</value>
         </property>
     </bean>
+
+
+    <mvc:interceptors>
+        <bean class= "com.trs.timereporting.interceptor.PerformanceMonitorInterceptor"/>
+        <bean class= "org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="language"/>
+        </bean>
+    </mvc:interceptors>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+
+    <mvc:resources location="/resources/"  mapping="/resource/**"/>
+    <mvc:resources location="/resources/css/" mapping="/resource/**"/>
+
+    <mvc:resources location="/resources/js/" mapping="/resource/**"/>
+
+
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">

@@ -1,13 +1,11 @@
-package trs.timereporting.domain;
+package com.trs.timereporting.domain;
 
-import com.trs.timereporting.domain.Client;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by williamzappasodi on 1/31/16.
- */
+
 public class ClientTest {
 
 
@@ -25,9 +23,7 @@ public class ClientTest {
         String testName = "Steven";
         client.setName(testName);
         // act
-
         // assert
-
         Assert.assertEquals(String.valueOf(testName),client.getName());
 
 

@@ -1,5 +1,7 @@
 package com.trs.timereporting.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,13 +13,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 
 public class Project {
+
+    @NotEmpty(message="{NotNull.Client.name.validation}")
     private String hours;
     private String startDate;
     private String dueDate;
+
+    @NotEmpty(message="{NotNull.Client.name.validation}")
     private String name;
     private String invoiceSent;
+
+    @NotEmpty(message="{NotNull.Client.name.validation}")
     private Integer clientId;
     private Integer projectId;
+
+    @NotEmpty(message="{NotNull.Client.name.validation}")
     private String description;
 
 
