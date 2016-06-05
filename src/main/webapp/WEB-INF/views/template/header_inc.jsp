@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="/resource/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="/resource/css/overrides.css">
+
 
     <script data-main="/resource/js/common" src="/resource/js/lib/require.js"></script>
 
@@ -46,7 +48,7 @@
                     <div id="navbar" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="/viewprojects">View all projects</a></li>
-                            <li><a href="/addprojects">Insert a new project</a></li>
+                            <li><a href="/add">Insert a new project</a></li>
                             <li><a href='/addnewclients'>Insert a new client</a></li>
                             <li><a href='/viewtasks'>View tasks</a></li>
                             <a href="<c:url value="/j_spring_security_logout" />"

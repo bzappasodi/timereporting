@@ -27,28 +27,21 @@ public class ProjectController {
     @Autowired
     private ClientService clientService;
 
-
-    @RequestMapping(value = "/addprojects", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     // model
-    public String project(@ModelAttribute("newProject") Project project, Model model) {
-      //  model.addAttribute("addprojectmessage", "Add New Project");
-        // get all clients has the client id and name for the view
-       model.addAttribute("clients", clientService.getAllClients());
-
+    public String project(@ModelAttribute("project") Project project, Model model) {
+        model.addAttribute("clients", clientService.getAllClients());
         return "addprojects";
     }
 
-    @RequestMapping(value = "/addprojects", method = RequestMethod.POST)
-    // get the id of the client from the form submiton
-    public String saveProject(@ModelAttribute("newProject") @Valid Project project, BindingResult result, HttpServletRequest request) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String saveProject(@ModelAttribute("project") @Valid Project project, BindingResult result, HttpServletRequest request) {
 
         if (result.hasErrors()) {
-          //  model.addAttribute("clients", clientService.getAllClients());
 
             return "addprojects";
         }
         projectService.create(project);
-       // model.addAttribute("success", "Project Successfully Added!");
         return "redirect:/viewprojects";
     }
     /*

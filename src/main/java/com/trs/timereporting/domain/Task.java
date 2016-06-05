@@ -1,6 +1,8 @@
 package com.trs.timereporting.domain;
 
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -14,8 +16,11 @@ public class Task {
 
     private Integer projectId;
     private Integer taskId;
+    @NotEmpty(message="{NotNull.Project.hours.validation}")
     private String hoursAdded;
+    @NotEmpty(message="{NotNull.Project.description.validation}")
     private String description;
+    @NotEmpty(message="{NotNull.Project.hours.validation}")
     private String hours;
     private String projectDescription;
 

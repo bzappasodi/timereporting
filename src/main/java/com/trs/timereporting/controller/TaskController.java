@@ -5,9 +5,13 @@ import com.trs.timereporting.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 
 /**
@@ -22,12 +26,6 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping("/task")
-    public String task(Model model, @RequestParam("projectId") String projectId) {
-        model.addAttribute("projectId", projectId);
-        return "addtasks";
-    }
-
 
     @RequestMapping("/viewtasks")
     public String view(Model model) {
@@ -36,16 +34,24 @@ public class TaskController {
         return "viewtasks";
     }
 
-
-    @RequestMapping(value = "/addtask", method = RequestMethod.POST)
-    public String saveTask(Task task, Model model, @RequestParam("projectId") Integer pid) {
-       task.setProjectId(pid);
-       taskService.create(task);
-       model.addAttribute("success", "Task Successfully Added!");
-        return "savesuccess";
-
+    @RequestMapping(value = "/task", method = RequestMethod.GET)
+    public String task(@ModelAttribute("newTask") Model model, @RequestParam("projectId") String projectId) {
+        model.addAttribute("projectId", projectId);
+        return "addtasks";
     }
 
+
+    @RequestMapping(value = "/task", method = RequestMethod.POST)
+    public String saveTask(@ModelAttribute("newTask") Task task, Model model, @RequestParam("projectId") @Valid Integer pid, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addtasks";
+        }
+        task.setProjectId(pid);
+        taskService.create(task);
+       // model.addAttribute("success", "Task Successfully Added!");
+        return "redirect:/viewtasks";
+
+    }
 
 
 }

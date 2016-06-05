@@ -16,52 +16,69 @@
             </div>
         </c:if>
 
-        <form:form modelAttribute="newProject" role="form">
+        <form:form modelAttribute="project" role="form">
             <form:errors path="*" cssClass="alert alert-danger" element="div"/>
 
 
-        <fieldset>
+            <fieldset>
                 <div class="form-group">
 
 
+                    <%--<form:select path="clientId" multiple="true">--%>
+                        <%--<form:options items="${clients}"/>--%>
+                    <%--</form:select>--%>
+
+
                     <form:select path="clientId">
-                        <form:options items="${clients}" />
+                        <form:option value="" label="Please Select"/>
+                        <form:options items="${clients}" itemValue="clientId" itemLabel="name"/>
                     </form:select>
 
+                    <form:errors path="clientId" cssClass="text-danger"/>
 
-                    <select name="clientId" class="form-control" id="sel1">
-                        <option>Select client</option>
-                        <c:forEach items="${clients}" var="client">
-                            <option value="${client.clientId}">${client.name}</option>
-                        </c:forEach>
-                    </select>
+
+                        <%--<select name="clientId" class="form-control" id="sel1">--%>
+                        <%--<option>Select client</option>--%>
+                        <%--<c:forEach items="${clients}" var="client">--%>
+                        <%--<option value="${client.clientId}">${client.name}</option>--%>
+                        <%--</c:forEach>--%>
+                        <%--</select>--%>
                 </div>
-            <div class="form-group">
-                    <form:input type="text" path="description" class="form-control" id="description"  placeholder="Description"/>
+                <div class="form-group">
+                    <form:input type="text" path="description" class="form-control" id="description"
+                                placeholder="Description"/>
                     <form:errors path="description" cssClass="text-danger"/>
-            </div>
+                </div>
 
-            <div class="form-group">
-                <input type="text" name="dueDate" class="form-control" id="DUE_DATE" placeholder="Due Date">
-            </div>
+                <div class="form-group">
 
-            <div class="form-group">
+                    <form:input type="text" path="dueDate" class="form-control" id="DUE_DATE" placeholder="Due Date"/>
+                    <form:errors path="dueDate" cssClass="text-danger"/>
+                </div>
+
+                <div class="form-group">
 
                     <form:input type="text" path="hours" class="form-control" id="hours" placeholder="Hours"/>
                     <form:errors path="hours" cssClass="text-danger"/>
-            </div>
+                </div>
 
-            <div class="form-group">
-                <input type="text" name="startDate" class="form-control" id="START_DATE" placeholder="Start Date">
-            </div>
+                <div class="form-group">
+
+                    <form:input type="text" path="startDate" class="form-control" id="START_DATE"
+                                placeholder="Start Date"/>
+                    <form:errors path="startDate" cssClass="text-danger"/>
+
+                </div>
 
                 <div class="form-group">
 
                     <label for="invoiceSent">Invoice Sent?</label>
-                    <label class="radio-inline"><input type="radio" id="invoiceSent" value="yes"
-                                                       name="invoiceSent">yes</label>
-                    <label class="radio-inline"><input type="radio" id="invoiceSent" value="no"
-                                                       name="invoiceSent">no</label>
+                    <label class="radio-inline">
+                        <form:radiobutton path="invoiceSent" id="invoiceSent" value="yes"/>Yes
+                    </label>
+                    <label class="radio-inline">
+                        <form:radiobutton path="invoiceSent" id="invoiceSent" value="no"/>No
+                    </label>
 
                 </div>
 
@@ -75,7 +92,7 @@
 </div>
 
 <script>
-    require(["common"], function (common) {
+    require(["common"], function () {
         require(['base/trs/renderCalendar']);
 
     });
