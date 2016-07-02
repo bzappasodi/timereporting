@@ -34,4 +34,11 @@
     <div class="col-sm-4"></div>
 
 </div>
+<script>
+    require(["common"], function () {
+        require(['base/trs/errorHandler']);
+
+    });
+
+</script>
 <%@ include file="template/footer_inc.jsp" %>

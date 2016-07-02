@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 
 
-/**
- * Created by williamzappasodi on 12/28/15.
- */
 
 
 @Controller
@@ -35,20 +32,19 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/task", method = RequestMethod.GET)
-    public String task(@ModelAttribute("newTask") Model model, @RequestParam("projectId") String projectId) {
+    public String task(@ModelAttribute("newTask") Task task, Model model, @RequestParam("projectId") String projectId) {
         model.addAttribute("projectId", projectId);
         return "addtasks";
     }
 
 
     @RequestMapping(value = "/task", method = RequestMethod.POST)
-    public String saveTask(@ModelAttribute("newTask") Task task, Model model, @RequestParam("projectId") @Valid Integer pid, BindingResult result) {
+    public String saveTask(@ModelAttribute("newTask") @Valid Task task, BindingResult result) {
         if (result.hasErrors()) {
             return "addtasks";
         }
-        task.setProjectId(pid);
+        //task.setProjectId(pid);
         taskService.create(task);
-       // model.addAttribute("success", "Task Successfully Added!");
         return "redirect:/viewtasks";
 
     }

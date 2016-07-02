@@ -57,10 +57,8 @@ public class ClientController {
 
 
     @RequestMapping(value = "/addnewclients", method = RequestMethod.GET)
-
     public String add(@ModelAttribute("newClient")
-                      Client newClient) {
-
+                              Client newClient) {
         return "addclients";
     }
 
@@ -71,8 +69,6 @@ public class ClientController {
             return "addclients";
         }
         clientService.create(client);
-
-
         return "redirect:/clients";
     }
 

@@ -1,5 +1,7 @@
-define(['jquery'], function ($) {
-    "use strict";
+    define(['jquery'], function ($) {
+
+
+        "use strict";
 
     var calApp = {
         init: function () {

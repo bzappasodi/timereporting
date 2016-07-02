@@ -13,6 +13,6 @@ require(['jquery', 'jquery_ui'], function ($) {
     $(window).unload(function () {
         $(window).unbind('unload');
    });
-  //console.log("Loaded " + $);
+  console.log("Loaded " + $);
    return {};
 });

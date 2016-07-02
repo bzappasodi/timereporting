@@ -24,16 +24,16 @@
                 <div class="form-group">
 
 
-                    <%--<form:select path="clientId" multiple="true">--%>
+                        <%--<form:select path="clientId" multiple="true">--%>
                         <%--<form:options items="${clients}"/>--%>
-                    <%--</form:select>--%>
-
+                        <%--</form:select>--%>
+                    <label for="clientId">Select Client</label>
 
                     <form:select path="clientId">
                         <form:option value="" label="Please Select"/>
                         <form:options items="${clients}" itemValue="clientId" itemLabel="name"/>
                     </form:select>
-
+                    <br>
                     <form:errors path="clientId" cssClass="text-danger"/>
 
 
@@ -93,7 +93,7 @@
 
 <script>
     require(["common"], function () {
-        require(['base/trs/renderCalendar']);
+        require(['base/trs/renderCalendar', 'base/trs/errorHandler']);
 
     });
 

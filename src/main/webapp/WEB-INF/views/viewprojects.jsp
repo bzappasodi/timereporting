@@ -29,7 +29,7 @@
                     <td>${project.description}</td>
                     <td>${project.hours}</td>
                     <td>${project.invoiceSent}</td>
-                    <td><a href="/task/?projectId=${project.projectId}">Add Task</a></td>
+                    <td><a href="/task?projectId=${project.projectId}">Add Task</a></td>
                 </tr>
 
             </c:forEach>

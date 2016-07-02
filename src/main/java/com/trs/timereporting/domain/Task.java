@@ -16,12 +16,16 @@ public class Task {
 
     private Integer projectId;
     private Integer taskId;
-    @NotEmpty(message="{NotNull.Project.hours.validation}")
+
+    @NotEmpty(message="{NotNull.Task.hoursadded.validation}")
     private String hoursAdded;
-    @NotEmpty(message="{NotNull.Project.description.validation}")
+
+    @NotEmpty(message="{NotNull.Task.description.validation}")
     private String description;
-    @NotEmpty(message="{NotNull.Project.hours.validation}")
+
+    @NotEmpty(message="{NotNull.Task.hours.validation}")
     private String hours;
+
     private String projectDescription;
 
     public Task() {
