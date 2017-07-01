@@ -1,3 +1,9 @@
 /.idea
 /target
 *.log
+node_modules/
+src/test/javascripts/base/.DS_Store
+timereporting-performance.log.1
+timereporting.iml
+/.idea/jsLibraryMappings.xml
+.DS_Store
