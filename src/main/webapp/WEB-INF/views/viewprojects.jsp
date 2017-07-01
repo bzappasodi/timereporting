@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <jsp:include page="template/header_inc.jsp">
     <jsp:param name="title" value="${addprojectmessage}"/>
@@ -11,11 +10,11 @@
             <thead>
 
             <tr>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Client</th>
+                <th>Project Description</th>
                 <th>Hours</th>
                 <th>Invoice sent?</th>
-                <th>Add Tasks</th>
+                <th>Add Task to Project</th>
             </tr>
 
 
